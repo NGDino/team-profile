@@ -1,3 +1,20 @@
+GenerateTeam = teamArr => {
+    return  `
+    <div class="card col" style="width: 18rem;">
+    <div class="card-body card-header">
+        <h5 class="card-title">${name}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">${role}</h6>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">${email}</li>
+        <li class="list-group-item">${id}</li>
+        <li class="list-group-item">${finalQuestion}</li>
+    </ul>
+</div>`
+}
+
+return `
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,17 +38,7 @@
     <main class="container">
         <div class="row">
 
-            <div class="card col" style="width: 18rem;">
-                <div class="card-body card-header">
-                    <h5 class="card-title">Name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Title</h6>
-                </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item">Cras justo odio</li>
-                    <li class="list-group-item">Dapibus ac facilisis in</li>
-                    <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
-            </div>
+         
 
             
         </div>
@@ -42,4 +49,12 @@
 
 </body>
 
-</html>
+</html> 
+`
+
+module.exports = teamData =>{
+    console.log(teamData)
+}
+
+const {name, email, id, role}= teamData
+

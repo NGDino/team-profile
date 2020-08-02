@@ -3,15 +3,25 @@ const inquirer = require('inquirer');
 const {
     inflateRawSync
 } = require('zlib');
+
+//links to constructor functions
 const Engineer = require('./lib/Engineer');
 const Employee = require('./lib/Employee');
 const Intern = require('./lib/Intern');
 const Manager = require('./lib/Manager')
 
+// links to pages to generate content
 
+const generatePage = require('./src/page-template')
+
+const { writeFile, copyFile } = require('./generate-site.js')
+
+//team array
 const team = []
 
 
+
+// inquirer to collect data
 function getInfo() {
     inquirer.prompt([{
                 type: 'input',
@@ -37,7 +47,7 @@ function getInfo() {
         ])
         .then(answers => {
             
-
+            // specific questions based on role
             
             if (answers.role === 'Engineer') {
                 inquirer.prompt([{
@@ -83,7 +93,7 @@ function getInfo() {
                 team.push(someEmployee)
                 addMore()
             }
-
+            //add another teamate.  Will start prompt over or precede to make the page
             function addMore() {
                 inquirer.prompt([{
                     type: 'confirm',
@@ -95,7 +105,17 @@ function getInfo() {
                         getInfo(team)
                     }else{
                         console.log(team)
+                        generatePage(team)
+                        writeFile(pageHTML)
+                        console.log('write file response', writeFileResponse)
+                        copyFile()
+                        console.log('copy file response', copyFileResponse)
+                        .catch(err => {
+                            console.log(err)
+                        })
+
                     }
+                    
                 })
                 
             }
@@ -104,3 +124,4 @@ function getInfo() {
 }
 
 getInfo();
+
