@@ -111,13 +111,7 @@ function getInfo() {
                         console.log('team', team)
                         let theCardsHTML = generatePage(team)
                         writeHTML(theCardsHTML)
-                        // console.log('write file response', writeFileResponse)
-                        // copyFile()
-                        // console.log('copy file response', copyFileResponse)
-                        // .catch(err => {
-                        //     console.log(err)
-                        // })
-
+                        
                     }
                     
                 })
@@ -127,14 +121,7 @@ function getInfo() {
         })
 }
 
-// function writeHTML(html){
-//     fs.writeFile('./dist/index.html', html, err => {
-//     if (err){
-//          throw err
-//     }
-//     console.log("saved")
-//     })
-// }
+
 
 getInfo();
 

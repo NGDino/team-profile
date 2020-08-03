@@ -1,4 +1,12 @@
 const { TestResult } = require("@jest/types");
 
-// test for name id and email
+
+const employee = require('../lib/Employee');
+
+
+// test for name, email, id, role
+
+test('has a name', () => {
+    expect(role).toBe('employee')
+})
 

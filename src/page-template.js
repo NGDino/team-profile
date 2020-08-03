@@ -66,5 +66,5 @@ let GenerateTeam = teamArr => {
 
 module.exports = GenerateTeam;
 
-//const {name, email, id, role}= teamData
+
 
