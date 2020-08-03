@@ -1,3 +1,6 @@
+//fs for writing file
+const fs = require('fs')
+
 // Inquirer to get input
 const inquirer = require('inquirer');
 const {
@@ -14,7 +17,9 @@ const Manager = require('./lib/Manager')
 
 const generatePage = require('./src/page-template')
 
-const { writeFile, copyFile } = require('./generate-site.js')
+const writeHTML = require('./generate-site')
+
+// const { writeFile, copyFile } = require('./generate-site.js')
 
 //team array
 const team = []
@@ -82,8 +87,7 @@ function getInfo() {
                             message: "Enter Interns school"
                         }])
                         .then(ans => {
-                            console.log(ans.school)
-                        
+                                                    
                             const someIntern = new Intern(answers.name, answers.email, answers.id, answers.role, ans.school )
                             team.push(someIntern);
                             addMore()
@@ -104,15 +108,15 @@ function getInfo() {
                     if (res.addNew === true){
                         getInfo(team)
                     }else{
-                        console.log(team)
-                        generatePage(team)
-                        writeFile(pageHTML)
-                        console.log('write file response', writeFileResponse)
-                        copyFile()
-                        console.log('copy file response', copyFileResponse)
-                        .catch(err => {
-                            console.log(err)
-                        })
+                        console.log('team', team)
+                        let theCardsHTML = generatePage(team)
+                        writeHTML(theCardsHTML)
+                        // console.log('write file response', writeFileResponse)
+                        // copyFile()
+                        // console.log('copy file response', copyFileResponse)
+                        // .catch(err => {
+                        //     console.log(err)
+                        // })
 
                     }
                     
@@ -122,6 +126,15 @@ function getInfo() {
                 
         })
 }
+
+// function writeHTML(html){
+//     fs.writeFile('./dist/index.html', html, err => {
+//     if (err){
+//          throw err
+//     }
+//     console.log("saved")
+//     })
+// }
 
 getInfo();
 
