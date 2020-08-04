@@ -11,10 +11,25 @@ let GenerateTeam = teamArr => {
     let card = ""  
     
     for(let i = 0; i < teamArr.length; i++) {
-        let lastThing = teamArr[i].school || teamArr[i].gitHub || teamArr[i].office
         
+    
+        let lastThing = teamArr[i].school || teamArr[i].gitHub || teamArr[i].office
+        let objectKeys = Object.keys(teamArr[i])
+        let lastAtt = objectKeys[4]
+        let finalProp = lastAtt + ": " + lastThing
 
-        console.log(lastThing)
+        if(lastAtt === undefined){
+            finalProp = " ";
+            console.log(finalProp)
+           }else if(lastAtt === 'gitHub'){
+             finalProp = (`GitHub : <a href = 'https://www.github.com/${teamArr[i].gitHub}'> ${teamArr[i].gitHub}</a>`)
+             console.log(finalProp)
+           }
+           else{
+             console.log(finalProp)
+           
+         }
+        
 
         let {name, role, email, id,} = teamArr[i]
        card+= `
@@ -26,7 +41,7 @@ let GenerateTeam = teamArr => {
         <ul class="list-group list-group-flush">
             <li class="list-group-item">Email: <a href=mailto:${email}>${email}</a></li>
             <li class="list-group-item">Employee ID: ${id}</li>
-            <li class="list-group-item">NEED TO LOG KEY: ${lastThing}</li>
+            <li class="list-group-item"> ${finalProp}</li>
             
             
         </ul>

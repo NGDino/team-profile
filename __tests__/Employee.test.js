@@ -15,6 +15,9 @@ test('has a name', () => {
     
     
 })
+test('has an email a valid email', () =>{
+    expect(testEmployee.email).toEqual(expect.stringContaining('@'))
+})
 
 test('has a role of employee', () => {
     expect(testEmployee.role).toBe('employee')

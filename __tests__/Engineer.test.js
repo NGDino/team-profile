@@ -2,27 +2,39 @@
 const { TestResult } = require("@jest/types");
 
 
-const Employee = require('../lib/Employee');
+const Engineer = require('../lib/Engineer');
 
 
 // test for name, email, id, role validity
 
 
-const testEngineer = new Employee("neil", "ndino@gmail.com", "3", "employee", "ngdino")
+const testEngineer = new Engineer("neil", "ndino@gmail.com", 3 , "engineer", "ngdino")
 
 test('has a name', () => {
-    expect(testEmployee.name).toEqual(expect.any(String))
-    expect(testEmployee.name.length).toBeGreaterThan(2)
-    
-    
+    expect(testEngineer.name).toEqual(expect.any(String))
+    expect(testEngineer.name.length).toBeGreaterThan(2)
 })
 
-test('has a role of employee', () => {
-    expect(testEmployee.role).toBe('employee')
+test('has an email a valid email', () =>{
+    expect(testEngineer.email).toEqual(expect.stringContaining('@'))
+})
+
+test('has a role of Engineer', () => {
+    expect(testEngineer.role).toBe('engineer')
 })
 
 test('Id has value', () =>{
-    expect(testEmployee.id).toEqual(expect.any(Number))
+    expect(testEngineer.id).toEqual(expect.any(Number))
 })
 
-test('has github')
+test('Entered a github', () =>{
+    objectKeys= Object.keys(testEngineer)
+    keyGH = objectKeys[4]
+
+    expect(keyGH).toBe('gitHub')
+
+    expect(testEngineer.gitHub).toEqual(expect.any(String))
+
+})
+
+
