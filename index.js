@@ -31,17 +31,41 @@ function getInfo() {
     inquirer.prompt([{
                 type: 'input',
                 name: "name",
-                message: "Employees Name"
+                message: "Employees Name",
+                validate: nameInput => {
+                    if (nameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter team member name!')
+                        return false;
+                    }
+                }
             },
             {
                 type: 'input',
                 name: "email",
-                message: "what is their email address?"
+                message: "what is their email address?",
+                validate: emailInput => {
+                    if (emailInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter team member email!')
+                        return false;
+                    }
+                }
             },
             {
                 type: 'input',
                 name: 'id',
-                message: "enter employee ID"
+                message: "enter employee ID",
+                validate: idInput => {
+                    if (idInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a valid ID!')
+                        return false;
+                    }
+                }
             },
             {
                 type: 'list',
@@ -58,7 +82,15 @@ function getInfo() {
                 inquirer.prompt([{
                     type: 'input',
                     name: 'gitHub',
-                    message: "Enter Engineer's GitHub"
+                    message: "Enter Engineer's GitHub",
+                    validate: gitInput => {
+                        if (gitInput) {
+                            return true;
+                        } else {
+                            console.log('Please enter a github username!')
+                            return false;
+                        }
+                    }
                 }])
                 .then(ans => {
                     console.log(ans.gitHub)
@@ -71,7 +103,15 @@ function getInfo() {
                     inquirer.prompt([{
                         type: 'input',
                         name: 'office',
-                        message: "Enter Managers office number"
+                        message: "Enter Managers office number",
+                        validate: officeInput => {
+                            if (officeInput) {
+                                return true;
+                            } else {
+                                console.log('Please enter managers office number!')
+                                return false;
+                            }
+                        }
                     }])
                     .then(ans => {
                         console.log(ans.office)
@@ -84,7 +124,15 @@ function getInfo() {
                         inquirer.prompt([{
                             type: 'input',
                             name: 'school',
-                            message: "Enter Interns school"
+                            message: "Enter Interns school",
+                            validate: schoolInput => {
+                                if (schoolInput) {
+                                    return true;
+                                } else {
+                                    console.log('Please enter Interns school!')
+                                    return false;
+                                }
+                            }
                         }])
                         .then(ans => {
                                                     

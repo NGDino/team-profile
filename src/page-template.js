@@ -1,12 +1,22 @@
+
+ 
+
+
 let GenerateTeam = teamArr => {
-        
+    
+    
 
     console.log('team array', teamArr)
   
     let card = ""  
     
     for(let i = 0; i < teamArr.length; i++) {
-        let {name, role, email, id, finalQuestion} = teamArr[i]
+        let lastThing = teamArr[i].school || teamArr[i].gitHub || teamArr[i].office
+        
+
+        console.log(lastThing)
+
+        let {name, role, email, id,} = teamArr[i]
        card+= `
         <div class="card col" style="width: 18rem;">
         <div class="card-body card-header">
@@ -14,11 +24,14 @@ let GenerateTeam = teamArr => {
             <h6 class="card-subtitle mb-2 text-muted">${role}</h6>
         </div>
         <ul class="list-group list-group-flush">
-            <li class="list-group-item">Email: ${email}</li>
+            <li class="list-group-item">Email: <a href=mailto:${email}>${email}</a></li>
             <li class="list-group-item">Employee ID: ${id}</li>
-            <li class="list-group-item">${finalQuestion}</li>
+            <li class="list-group-item">NEED TO LOG KEY: ${lastThing}</li>
+            
+            
         </ul>
-    </div>`
+        </div>`
+        
     }
     
     
@@ -35,6 +48,7 @@ let GenerateTeam = teamArr => {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
     </head>
     
