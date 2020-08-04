@@ -1,17 +1,19 @@
 
- 
+ //template for html file
 
 
 let GenerateTeam = teamArr => {
     
+
     
 
     console.log('team array', teamArr)
   
     let card = ""  
-    
+    // loop over array of objects
     for(let i = 0; i < teamArr.length; i++) {
         
+        //to grab the final property of each class
     
         let lastThing = teamArr[i].school || teamArr[i].gitHub || teamArr[i].office
         let objectKeys = Object.keys(teamArr[i])
@@ -29,7 +31,7 @@ let GenerateTeam = teamArr => {
              console.log(finalProp)
            
          }
-        
+        //makes the cards
 
         let {name, role, email, id,} = teamArr[i]
        card+= `
@@ -49,7 +51,7 @@ let GenerateTeam = teamArr => {
         
     }
     
-    
+    //returns the full html necessary
 
     return `
 

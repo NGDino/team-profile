@@ -1,5 +1,7 @@
 const fs = require('fs')
 
+//write html file
+
 function writeSite(html){
     fs.writeFile('./dist/index.html', html, err => {
     if (err){
@@ -13,6 +15,8 @@ function writeSite(html){
     
 }
 
+
+// coppy CSS template
 const copyFile = () => {
     fs.copyFile('./src/style.css', './dist/style.css', err => {
             if (err) {
